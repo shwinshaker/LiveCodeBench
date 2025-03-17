@@ -64,10 +64,12 @@ def main():
 
     if len(remaining_benchmark) > 0:
         runner = build_runner(args, model)
+        # chengyu: Model generation is done here
         results: list[list[str]] = runner.run_main(remaining_benchmark, format_prompt)
     else:
         results = []
 
+    # chengyu: Code extraction is done here
     combined_results = combine_results(
         args.scenario, results, model, args.cot_code_execution
     )
@@ -158,6 +160,7 @@ def main():
                 metrics = {}
 
         else:
+            # chengyu: Code execution is done here
             metrics = get_metrics(args.scenario, args, benchmark, combined_results)
             graded = extract_instance_results(metrics[1])
             old_eval_all_results = []

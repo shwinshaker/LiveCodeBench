@@ -47,6 +47,7 @@ class OpenAIRunner(BaseRunner):
 
     def _run_single(self, prompt: list[dict[str, str]]) -> list[str]:
         assert isinstance(prompt, list)
+        # import pdb; pdb.set_trace()
 
         try:
             response = OpenAIRunner.client.chat.completions.create(
